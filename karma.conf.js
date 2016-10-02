@@ -1,32 +1,42 @@
+'use strict';
+
 module.exports = function(config){
   config.set({
+
+    reporters: ['progress', 'html'],
 
     basePath : './',
 
     files : [
-      'app/bower_components/angular/angular.js',
-      'app/bower_components/angular-route/angular-route.js',
-      'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/components/**/*.js',
-      'app/view*/**/*.js'
+	{ pattern:
+      'app/bower_components/angular/angular.js', watched: true, included: true },
+  { pattern:
+      'app/bower_components/angular-route/angular-route.js', watched: true, included: true },
+  { pattern: 'app/bower_components/angular-mocks/angular-mocks.js', watched: true, included: true },
+
+  { pattern: 'app/components/**/*.js', watched: true, included: true },
+      
     ],
+	
 
     autoWatch : true,
 
     frameworks: ['jasmine'],
 
-    browsers : ['Chrome'],
+    browsers : ['Chrome',
+		            'Firefox',
+	             ],
 
     plugins : [
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-jasmine',
-            'karma-junit-reporter'
-            ],
+            'karma-junit-reporter',
+            'karma-htmlfile-reporter',
+              ],
 
-    junitReporter : {
-      outputFile: 'test_out/unit.xml',
-      suite: 'unit'
+    htmlReporter : {
+      outputFile: 'test/unit.html',
     }
 
   });

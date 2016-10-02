@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center"> Github Issue Viewer </h1>
+      <h3 class="floatLeft"> Please enter a repo: </h3> 
+      <input id="repoInput" type="text" ng-model="repo" class="form-control floatLeft">
+      <input id="submit" type="submit" value="Load Repo" ng-click="loadRepo()" class="btn btn-default">
+
+      <dir-pagination-controls class="floatRight"
+          max-size="9"
+          direction-links="true"
+          boundary-links="false"
+          on-page-change="pageChanged(newPageNumber, oldPageNumber)"
+          pagination-id=""
+          template-url=""
+          auto-hide="">
+          </dir-pagination-controls>
+
+            <div class="clear"> </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+      <div class="contentContainer">
+        <!-- ::one way binding to avoid wasting $watches -->
+        <div dir-paginate="info in userList | itemsPerPage: 25"
+            current-page=""
+            pagination-id=""
+            total-items="910">
+          <div class="usernameContainer floatLeft user">
+              <a href="{{::info.user.html_url}}">
+                    <img src="{{::info.user.avatar_url}}" width="75px" height="75px">
+                    <p class="username"> @{{::info.user.login}} </p> 
+                    <div ng-repeat="label in info.labels">
+                      <p class="label" style="background-color:#{{::label.color}}"> {{::label.name}}</p>
+                    </div>
+              </a>
+          </div>
+              <a href="#/issues/{{info.number}}">
+                  <p class="issueNumber"> #{{::info.number}} </p>
+                  <p class="text-center bold title"> {{::info.title}} </p>
+                  <p id="summary" class="text-center center-block" ng-bind-html="info.body | formatSummary | linkGithubAccount | markdown" ng-style="color"> </p>
+              </a>      
+              <hr>
+          
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,154 @@
+@font-face {
+  font-family: Artbrush;
+  src: url(fonts/Artbrush.ttf);
+  src: url(fonts/Artbrush.woff);
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+.container {
+    width: 80%;
+    padding-top: 10px;
+  }
+  .contentContainer {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-top: 15px;
+  }
+
+  /* CSS 'Tool' Classes */
+  /* Remove padding & margins */
+  .zero {
+    padding: 0;
+    margin: 0;
+  }
+  /* Clear floats */
+  .clear {
+    clear: both;
+  }
+  /* Floats */
+  .floatLeft {
+    float: left;
+  }
+  .floatRight {
+    float: right;
+  }
+  .bold {
+    font-weight: bold;
+  }
+  h1 {
+    font-family: Artbrush;
+    font-size: 3em;
+  }
+  hr {
+    width: 85%;
+    position: relative;
+    left: 10px;
+  }
+  a {
+    color: white;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  .username {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: .8em;
+  }
+  .user {
+    margin-top: 60px;
+  }
+
+  /* Repo Input */
+  #repoInput {
+    margin: 20px 0 0 10px;
+    width: 200px;
+  }
+  #submit {
+    margin: 20px 0 0 10px;
+  }
+
+  .issueNumber {
+    float: right;
+    padding-right: 20px;
+  }
+  .label {
+    float: left;
+    padding: 2px;
+    border-radius: 2px;
+    margin: 2px 2px 0 0;
+    font-size: .8em;
+    color: white;
+    font-weight: bold;
+  }
+  #summary {
+    clear: both;
+    width: 70%;
+    margin-bottom: 40px;
+  }
+#pageNumbers {
+  display: inline;
+}
+#pageNumbers {
+  list-style: none;
+}
+
+/* Issue Details Page */
+
+#state {
+  margin: 5px 10px 0 0;
+  background-color: #ccffe6;
+  padding: 5px;
+  border-radius: 5px;
+  color: grey;
+  float: right;
+}
+h2 {
+  font-size: 1.5em;
+}
+.bodyContainer {
+  width: 80%;
+  margin-right: 60px;
+}
+
+/* Footer */
+  .footer {
+    padding: 15px 0 0 10px;
+    color: white;
+  }
+#peace {
+    font-size: 1.5em;
+    position: relative;
+    top: 3px;
+  }
+
+/* Media Queries */
+/****************************************************************************
+(800 X 600) + (768 X 1024) Tablet View
+****************************************************************************/
+@media only screen and (min-width: 768px) and (max-width: 959px)
+{ 
+  
+}
+
+/****************************************************************************
+(600 X 800) Landscape View (Phone)
+****************************************************************************/
+@media only screen and (min-width: 480px) and (max-width: 767px)
+{
+/*  #submit {
+    margin: 0 auto;
+  } */
+}
+
+/****************************************************************************
+{320 X 480} + (480 X 320) Portrait View (Phone)
+****************************************************************************/
+@media only screen and (max-width: 479px)
+{
+
+}

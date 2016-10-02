@@ -1,0 +1,60 @@
+<!-- Page for when a user clicks on an issue to view more -->
+<div class="container" ng-style="color">
+	<div class="row">
+		<div class="col-md-12">
+			<div id="issue_user">
+				<header>
+					<a href="./#/default">  
+						<button class="btn btn-default floatLeft"> Back </button>
+					</a>
+					<p id="state"> {{::issueInfo.state}} </p>	
+
+						<div class="clear"> </div>
+
+					<h2 class="text-center"> #{{::issueInfo.number}}: {{::issueInfo.title}} </h2>
+
+				</header>			
+				
+				<br> <br>
+
+				<div class="issueUserContainer floatLeft">
+					<a href="{{::issueInfo.user.html_url}}">
+						<img src="{{::issueInfo.user.avatar_url}}" width="75px" height="75px">
+						<p class="username"> @{{::issueInfo.user.login}} </p>
+
+						<div class="zero" ng-repeat="label in issueInfo.labels">
+							<p class="label" style="background-color:#{{label.color}}"> {{label.name}}</p> <br>
+						</div>
+
+					</a>
+				</div>
+
+				<div class="bodyContainer text-center floatRight">
+					<p ng-bind-html="issueInfo.body | linkGithubAccount | markdown"> </p>
+				</div>
+
+					<div class="clear"> </div>
+
+			</div>
+				<hr>
+			<div ng-repeat="info in commentInfo">
+				<div class="commentUserContainer floatLeft">
+				<a href="{{::info.user.html_url}}" >
+					<img src="{{::info.user.avatar_url}}" width="75px" height="75px">
+					<p class="username"> @{{::info.user.login}} </p>
+					<div class="zero" ng-repeat="label in info.labels">
+						<p class="label" style="background-color:#{{label.color}}"> {{label.name}}</p> <br>
+					</div>
+				</a>
+				</div>
+
+				<div class="bodyContainer text-center floatRight">
+					<p ng-bind-html="::info.body | linkGithubAccount | markdown"> </p>
+				</div>
+
+					<div class="clear"> </div>
+					<hr>
+			</div>
+		</div>
+	</div>
+</div>
